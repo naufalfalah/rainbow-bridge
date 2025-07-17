@@ -9,8 +9,23 @@ class FaqModel extends Model {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addFaq($question, $answer) {
+    public function getFaqById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM faqs WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function createFaq($question, $answer) {
         $stmt = $this->db->prepare("INSERT INTO faqs (question, answer) VALUES (:question, :answer)");
+        $stmt->bindParam(':question', $question);
+        $stmt->bindParam(':answer', $answer);
+        return $stmt->execute();
+    }
+
+    public function updateFaq($id, $question, $answer) {
+        $stmt = $this->db->prepare("UPDATE faqs SET question = :question, answer = :answer WHERE id = :id");
+        $stmt->bindParam(':id', $id);
         $stmt->bindParam(':question', $question);
         $stmt->bindParam(':answer', $answer);
         return $stmt->execute();

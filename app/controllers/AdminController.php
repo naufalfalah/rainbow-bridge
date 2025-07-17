@@ -15,28 +15,24 @@ class AdminController extends Controller {
             exit;
         }
 
-        // Ambil data services
         $model = $this->model('ServiceModel');
         $services = $model->getServices();
 
-        // Ambil data testimonies
         $model = $this->model('TestimonyModel');
         $testimonies = $model->getTestimonies();
         
-        // Ambil data faqs
         $model = $this->model('FaqModel');
         $faqs = $model->getFaqs();
 
-        // Ambil data users
-        $model = $this->model('UserModel');
-        $users = $model->getUsers();
+        $model = $this->model('OrderModel');
+        $orders = $model->getorders();
         
         // Tampilkan halaman admin
         $this->view('admin', [
             'services' => $services,
             'testimonies' => $testimonies,
             'faqs' => $faqs,
-            'users' => $users,
+            'orders' => $orders,
         ]);
     }
 

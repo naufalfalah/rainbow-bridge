@@ -9,10 +9,29 @@ class ServiceModel extends Model {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addService($name, $description) {
-        $stmt = $this->db->prepare("INSERT INTO services (name, description) VALUES (:name, :description)");
+    public function getServiceById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM services WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function createService($name, $description, $price, $image) {
+        $stmt = $this->db->prepare("INSERT INTO services (name, description, price, image) VALUES (:name, :description, :price, :image)");
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':image', $image);
+        return $stmt->execute();
+    }
+
+    public function updateService($id, $name, $description, $price, $image) {
+        $stmt = $this->db->prepare("UPDATE services SET name = :name, description = :description, price = :price, image = :image WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':image', $image);
         return $stmt->execute();
     }
 

@@ -143,30 +143,23 @@
             <div id="testimonyCarousel" class="carousel slide" data-bs-ride="carousel">
                 <!-- Bullet Indicators -->
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#testimonyCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#testimonyCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#testimonyCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <?php $index = 0; ?>
+                    <?php foreach ($testimonies as $testimony) : ?>
+                        <button type="button" data-bs-target="#testimonyCarousel" data-bs-slide-to="<?= $index; ?>" class="<?= $index == 0 ? 'active' : ''; ?>" aria-current="true" aria-label="Slide <?= $index++; ?>"></button>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <?php $index = 1; ?>
+                    <?php foreach ($testimonies as $testimony) : ?>
+                    <div class="carousel-item <?= $index == 1 ? 'active' : '' ; ?>">
                         <div class="d-flex flex-column align-items-start">
-                            <p class="fs-4" style="font-size: 1.5rem;">"Rainbow Bridge provided compassionate and professional support during a difficult time. Their attention to detail and respectful service made the process much easier for my family. I highly recommend their services to anyone in need of cremation arrangements."</p>
-                            <p class="fw-bold">- Samantha </p>
+                            <p class="fs-4" style="font-size: 1.5rem;">"<?= $testimony['message']; ?>"</p>
+                            <p class="fw-bold">- <?= $testimony['author']; ?> </p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column align-items-start">
-                            <p class="fs-4" style="font-size: 1.5rem;">"Rainbow Bridge's empathetic and efficient team eased our minds during a challenging time. Their respect and care for our loved one brought us immense comfort. I can't thank them enough for their exceptional service."</p>
-                            <p class="fw-bold">- Micheal</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column align-items-start">
-                            <p class="fs-4" style="font-size: 1.5rem;">"Rainbow Bridge was a beacon of comfort in our time of need. Their team showed incredible compassion and professionalism, guiding us through every step with care. We are deeply grateful for their respectful service."</p>
-                            <p class="fw-bold">- Arif</p>
-                        </div>
-                    </div>
+                    <?php $index++; ?>
+                    <?php endforeach; ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonyCarousel" data-bs-slide="prev" style="transform: translateX(-150px);">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -204,57 +197,19 @@
 <div class="container">
         <h2 class="text-center fw-bold mb-4" style="color: white;">Our Services</h2>
         <div class="row g-4">
-            <!-- Card 1 -->
-            <div class="col-md-4">
-                <div class="card h-100" style="background-color: #343a40; color: white; border: 2px solid white;">
-                    <img src="https://picsum.photos/300/200" class="card-img-top" alt="Service Image">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Service Name 1</h5>
-                        <p class="fw-bold">Cost: IDR 500,000</p>
-                        <a href="#" class="btn btn-primary btn-block">Learn More</a>
-                        <p class="card-text">This service provides exceptional care and attention to detail for your needs.</p>
-                        <ul>
-                            <li>Feature 1</li>
-                            <li>Feature 2</li>
-                            <li>Feature 3</li>
-                        </ul>
+            <?php foreach ($services as $service) : ?>
+                <div class="col-md-4">
+                    <div class="card h-100" style="background-color: #343a40; color: white; border: 2px solid white;">
+                        <img src="<?= $service['image']; ?>" class="card-img-top" alt="Service Image">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold"><?= $service['name']; ?></h5>
+                            <p class="fw-bold">Cost: IDR <?= $service['price']; ?></p>
+                            <!-- <a href="#" class="btn btn-primary btn-block">Learn More</a> -->
+                            <p class="card-text"><?= $service['description']; ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Card 2 (Tengah, Lebih Tinggi) -->
-            <div class="col-md-4">
-                <div class="card h-100" style="background-color: #343a40; color: white; border: 2px solid white; height: 450px;">
-                    <img src="https://picsum.photos/300/200" class="card-img-top" alt="Service Image">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Service Name 2</h5>
-                        <p class="fw-bold">Cost: IDR 750,000</p>
-                        <a href="#" class="btn btn-primary btn-block">Learn More</a>
-                        <p class="card-text">Our team ensures the highest level of professionalism and care.</p>
-                        <ul>
-                            <li>Feature A</li>
-                            <li>Feature B</li>
-                            <li>Feature C</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="col-md-4">
-                <div class="card h-100" style="background-color: #343a40; color: white; border: 2px solid white;">
-                    <img src="https://picsum.photos/300/200" class="card-img-top" alt="Service Image">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Service Name 3</h5>
-                        <p class="fw-bold">Cost: IDR 1,000,000</p>
-                        <a href="#" class="btn btn-primary btn-block">Learn More</a>
-                        <p class="card-text">We provide tailored solutions to meet your specific requirements.</p>
-                        <ul>
-                            <li>Feature X</li>
-                            <li>Feature Y</li>
-                            <li>Feature Z</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -267,98 +222,22 @@
             <!-- Fetch Faqs -->
             <?php $index = 1; ?>
             <?php foreach ($faqs as $faq) : ?>
-
+                <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse<?= $faq['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $faq['id']; ?>"
+                            style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
+                            <?= $faq['question']; ?>
+                            <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
+                        </button>
+                    </h2>
+                    <div id="collapse<?= $faq['id']; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body"><?= $faq['answer']; ?></div>
+                    </div>
+                    <hr style="border-color: white;">
+                </div>
             <?php endforeach; ?>
-            <!-- Question 1 -->
-            <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                        style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
-                        What services does Rainbow Bridge offer for pet cremation?
-                        <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                    data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                    Rainbow Bridge offers individual and communal pet cremations, allowing you to choose the most appropriate option for your beloved pet.
-                    </div>
-                </div>
-                <hr style="border-color: white;">
-            </div>
-            <!-- Question 2 -->
-            <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                        style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
-                        How can I arrange a pet cremation with Rainbow Bridge?
-                        <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                    data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                    You can arrange a pet cremation by contacting us via phone or email. Your compassionate team will guide you through the process.
-                    </div>
-                </div>
-                <hr style="border-color: white;">
-            </div>
-            <!-- Question 3 -->
-            <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                        style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
-                        Where is Rainbow Bridge located in Jakarta?
-                        <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Rainbow Bridge is conveniently located in Bogor, ensuring easy access for our clients throughout the region.
-                    </div>
-                </div>
-                <hr style="border-color: white;">
-            </div>
-            <!-- Question 4 -->
-            <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
-                <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
-                        style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
-                        Do you provide any keepsakes or memorial products?
-                        <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                    data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Yes, we offer a wide variety of keepsakes and memorial products, including urns and footprints.
-                    </div>
-                </div>
-                <hr style="border-color: white;">
-            </div>
-            <!-- Question 5 -->
-            <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
-                <h2 class="accordion-header" id="headingFive">
-                    <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
-                        style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
-                        Can I witness the cremation process at Rainbow Bridge?
-                        <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                    data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Yes, you are welcome to witness the cremation process as part of our transparent and caring service approach.
-                    </div>
-                </div>
-                <hr style="border-color: white;">
-            </div>
         </div>
     </div>
 </section>

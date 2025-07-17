@@ -27,9 +27,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#faqs">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#users">Users</a>
                     </li> -->
                 </ul>
                 <form action="?url=logout" method="POST" class="d-flex">
@@ -41,8 +38,9 @@
     <div class="container mt-5">
         <!-- Services Section -->
         <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
                 <h2 class="h5 mb-0">Services</h2>
+                <a href="?url=admin/services/create" class="btn btn-success btn-sm">Create Service</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-hover">
@@ -65,9 +63,9 @@
                             <td><?= htmlspecialchars($service['name']); ?></td>
                             <td><?= htmlspecialchars($service['price']); ?></td>
                             <td><?= htmlspecialchars($service['description']); ?></td>
-                            <td><img src="<?= $service['image']; ?>" /></td>
+                            <td><img src="<?= $service['image']; ?>" style="max-width:480px" /></td>
                             <td>
-                                <a class="btn btn-sm btn-warning">Edit</a>
+                                <a href="?url=admin/services/edit&id=<?= $service['id'] ;?>" class="btn btn-sm btn-warning">Edit</a>
                                 <a href="?url=admin/services/delete&id=<?= $service['id'] ;?>" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -79,8 +77,9 @@
 
         <!-- Testimonies Section -->
         <div class="card mb-4">
-            <div class="card-header bg-success text-white">
+            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
                 <h2 class="h5 mb-0">Testimonies</h2>
+                <a href="?url=admin/testimonies/create" class="btn btn-success btn-sm">Create Testimony</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-hover">
@@ -101,7 +100,7 @@
                             <td><?= htmlspecialchars($testimony['author']); ?></td>
                             <td><?= htmlspecialchars($testimony['message']); ?></td>
                             <td>
-                                <a class="btn btn-sm btn-warning">Edit</a>
+                                <a href="?url=admin/testimonies/edit&id=<?= $testimony['id'] ;?>"  class="btn btn-sm btn-warning">Edit</a>
                                 <a href="?url=admin/testimonies/delete&id=<?= $testimony['id'] ;?>" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -113,8 +112,9 @@
 
         <!-- FAQs Section -->
         <div class="card mb-4">
-            <div class="card-header bg-info text-white">
+            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
                 <h2 class="h5 mb-0">FAQs</h2>
+                <a href="?url=admin/faqs/create" class="btn btn-success btn-sm">Create FAQ</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-hover">
@@ -135,8 +135,8 @@
                             <td><?= htmlspecialchars($faq['question']); ?></td>
                             <td><?= htmlspecialchars($faq['answer']); ?></td>
                             <td>
-                                <a class="btn btn-sm btn-warning">Edit</a>
-                                <a href="?url=admin/faqs/delete&id=<?= $service['id'] ;?>" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="?url=admin/faqs/edit&id=<?= $faq['id'] ;?>" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="?url=admin/faqs/delete&id=<?= $faq['id'] ;?>" class="btn btn-sm btn-danger">Delete</a>
                             </td>   
                         </tr>
                         <?php endforeach; ?>
@@ -145,7 +145,7 @@
             </div>
         </div>
 
-        <!-- Users Section -->
+        <!-- Order Section -->
         <div class="card mb-4">
             <div class="card-header bg-secondary text-white">
                 <h2 class="h5 mb-0">Orders</h2>
@@ -160,7 +160,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Populate with users data -->
+                        <!-- Populate with orders data -->
                         <tr>
                             <td>1</td>
                             <td>admin</td>
