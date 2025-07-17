@@ -264,6 +264,11 @@
     <div class="container">
         <h2 class="text-center mb-4" style="color: white;">Common Inquiries About Our Services</h2>
         <div class="accordion" id="faqAccordion">
+            <!-- Fetch Faqs -->
+            <?php $index = 1; ?>
+            <?php foreach ($faqs as $faq) : ?>
+
+            <?php endforeach; ?>
             <!-- Question 1 -->
             <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
                 <h2 class="accordion-header" id="headingOne">

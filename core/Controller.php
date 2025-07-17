@@ -2,7 +2,8 @@
 
 class Controller {
     public function view($view, $data = []) {
-        require_once '../app/views/' . $view . '.php';
+        extract($data); // Ekstrak array asosiatif menjadi variabel
+        require_once "../app/views/{$view}.php";
     }
 
     public function model($model) {
