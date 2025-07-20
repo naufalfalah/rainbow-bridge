@@ -6,7 +6,6 @@ return [
     'login/authenticate' => ['controller' => 'LoginController', 'method' => 'authenticate'],
     'logout' => ['controller' => 'LoginController', 'method' => 'logout'],
 
-    'order' => ['controller' => 'OrderController', 'method' => 'index'],
     'order/create' => ['controller' => 'OrderController', 'method' => 'create'],
     
     'admin' => ['controller' => 'AdminController', 'method' => 'index'],

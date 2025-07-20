@@ -38,7 +38,7 @@
                 <div class="col-md-6 p-5"> <!-- Warna krem -->
                     <h1 class="display-4">Layanan Kremasi Penuh Kasih Bogor</h1>
                     <p class="lead">Hargai kenangan hewan peliharaan kesayangan Anda dengan layanan kremasi kami yang penuh perhatian dan penuh perhatian di Bogor</p>
-                    <button class="btn btn-warning btn-lg" style="border-radius: 0;">Explore Our Services</button> <!-- Tombol kuning tanpa rounded -->
+                    <a href="?url=order/create" class="btn btn-warning btn-lg" style="border-radius: 0;">Explore Our Services</a> <!-- Tombol kuning tanpa rounded -->
                 </div>
                 <!-- Gambar di Sebelah Kanan -->
                 <div class="col-md-6 p-0">
