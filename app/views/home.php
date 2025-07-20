@@ -53,7 +53,7 @@
         <div class="container">
             <div class="text-left">
                 <h2 class="display-5 mb-4">Kremasi Bermartabat</h2>
-                <p class="lead mb-4">Rainbow Bridge menawarkan layanan kremasi yang penuh kasih sayang. Kami memastikan perpisahan yang bermartabat bagi orang-orang terkasih Anda dengan perawatan yang personal selama proses berlangsung. Tim kami yang berdedikasi berkomitmen untuk mendukung Anda di setiap langkah, memberikan kedamaian dan kenyamanan selama masa sulit ini. Pilih Rainbow Bridge untuk kenangan yang penuh rasa hormat.</p>
+                <p class="lead mb-4">Rainbow Bridge menawarkan layanan kremasi yang penuh kasih sayang. Kami memastikan perpisahan yang Bermartabat bagi peliharaan terkasih Anda dengan perawatan yang personal selama proses berlangsung. Tim kami yang berdedikasi berkomitmen untuk mendukung Anda di setiap langkah, memberikan kedamaian dan kenyamanan selama masa sulit ini. Pilih Rainbow Bridge untuk kenangan yang penuh rasa hormat.</p>
                 <img src="https://picsum.photos/800/400" class="img-fluid w-100" alt="About Image">
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <div class="col-md-6 mb-4">
                     <div>
                         <img src="https://picsum.photos/800/400?random=1" class="img-fluid w-100 rounded mb-3" alt="Service 1">
-                        <h4 class="text-start">Personalized Memorial Ceremonies</h4>
+                        <h4 class="text-start">Personalized Memorial Ceremonies</h4>rain
                         <p class="text-start">Ciptakan perpisahan yang bermakna dengan upacara peringatan yang dirancang khusus untuk menghormati kehidupan unik orang yang Anda cintai.</p>
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                 <div class="col-md-6">
                     <h2 class="fw-bold">Compassionate Pet Cremation</h2>
                     <p class="fs-5">
-                    Rainbow Bridge offers dignified cremation services in Jakarta, Indonesia, with a focus on compassion and care for both the departed and their loved ones. Our experienced team understands the profound emotional journey that comes with saying goodbye, and we are dedicated to providing support and guidance through every step of the process. At Rainbow Bridge, we honor each life with respect and sensitivity, ensuring a comforting experience for families during these challenging times.
+                        Rainbow Bridge offers leading cremation services in Bogor, Indonesia, with a focus on compassion and care for their loved ones. Our experienced team understands the profound emotional journey of saying goodbye, and we are dedicated to providing support and guidance every step of the way. At Rainbow Bridge, we honor every life with respect and sensitivity, ensuring a comfortable experience for families during this difficult time.
                     </p>
                 </div>
             </div>
@@ -193,77 +193,77 @@
     </section>
 
     <!-- Services Section -->
-<section id="services" class="py-5" style="background-color: #343a40; color: white;">
-<div class="container">
-        <h2 class="text-center fw-bold mb-4" style="color: white;">Our Services</h2>
-        <div class="row g-4">
-            <?php foreach ($services as $service) : ?>
-                <div class="col-md-4">
-                    <div class="card h-100" style="background-color: #343a40; color: white; border: 2px solid white;">
-                        <img src="<?= $service['image']; ?>" class="card-img-top" alt="Service Image">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold"><?= $service['name']; ?></h5>
-                            <p class="fw-bold">Cost: IDR <?= $service['price']; ?></p>
-                            <!-- <a href="#" class="btn btn-primary btn-block">Learn More</a> -->
-                            <p class="card-text"><?= $service['description']; ?></p>
+    <section id="services" class="py-5" style="background-color: #343a40; color: white;">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4" style="color: white;">Our Services</h2>
+            <div class="row g-4">
+                <?php foreach ($services as $service) : ?>
+                    <div class="col-md-4">
+                        <div class="card h-100" style="background-color: #343a40; color: white; border: 2px solid white;">
+                            <img src="<?= $service['image']; ?>" class="card-img-top" alt="Service Image">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><?= $service['name']; ?></h5>
+                                <p class="fw-bold">Cost: IDR <?= $service['price']; ?></p>
+                                <!-- <a href="#" class="btn btn-primary btn-block">Learn More</a> -->
+                                <p class="card-text"><?= $service['description']; ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Accordion (FAQ Section) -->
-<section id="faq" class="py-5" style="background-color: #343a40; color: white;">
-    <div class="container">
-        <h2 class="text-center mb-4" style="color: white;">Common Inquiries About Our Services</h2>
-        <div class="accordion" id="faqAccordion">
-            <!-- Fetch Faqs -->
-            <?php $index = 1; ?>
-            <?php foreach ($faqs as $faq) : ?>
-                <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse<?= $faq['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $faq['id']; ?>"
-                            style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
-                            <?= $faq['question']; ?>
-                            <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
-                        </button>
-                    </h2>
-                    <div id="collapse<?= $faq['id']; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                        data-bs-parent="#faqAccordion">
-                        <div class="accordion-body"><?= $faq['answer']; ?></div>
+    <!-- Accordion (FAQ Section) -->
+    <section id="faq" class="py-5" style="background-color: #343a40; color: white;">
+        <div class="container">
+            <h2 class="text-center mb-4" style="color: white;">Common Inquiries About Our Services</h2>
+            <div class="accordion" id="faqAccordion">
+                <!-- Fetch Faqs -->
+                <?php $index = 1; ?>
+                <?php foreach ($faqs as $faq) : ?>
+                    <div class="accordion-item" style="background-color: #343a40; color: white; border: none;">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse<?= $faq['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $faq['id']; ?>"
+                                style="background-color: #343a40; color: white; border: none; font-size: 1.25rem; font-weight: bold;">
+                                <?= $faq['question']; ?>
+                                <span class="position-absolute" style="right: 0;"><i class="bi bi-chevron-down"></i></span>
+                            </button>
+                        </h2>
+                        <div id="collapse<?= $faq['id']; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body"><?= $faq['answer']; ?></div>
+                        </div>
+                        <hr style="border-color: white;">
                     </div>
-                    <hr style="border-color: white;">
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Quote Section -->
-<section style="background-image: url(https://picsum.photos/400/1200); background-size: cover; background-position: center; color: white; text-align: center; padding: 50px 20px;">
-    <div class="py-5">
-        <h4 class="fw-bold">Honoring Loved Ones with Care</h4>
-        <p>At Rainbow Bridge, our dedication to providing compassionate cremation services in Bogor is unmatched. Let us help you design a heartfelt and memorable farewell for your loved one.</p>
-    </div>
-</section>
-
- <!-- Footer Section -->
-<footer class="py-4" style="background-color: #343a40; color: white;">
-    <div class="container text-center">
-        <div class="mt-3">
-            <h5 class="fw-bold">Rainbow Bridge</h5>
-            <p>
-                <a href="https://www.instagram.com/rainbowbridge_memorial/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> | 
-                <a href="mailto:rainbowbridgekremasihewan2021@gmail.com" style="color: white; text-decoration: none;">Email</a> | 
-                <a href="https://www.facebook.com/share/1PcPnVqciU/" target="_blank" style="color: white; text-decoration: none;">Facebook</a>
-            </p>
-            <p>Phone: <a href="tel:+6281808106789" style="color: white; text-decoration: none;">+62 818-0810-6789</a></p>
+    <!-- Quote Section -->
+    <section style="background-image: url(https://picsum.photos/400/1200); background-size: cover; background-position: center; color: white; text-align: center; padding: 50px 20px;">
+        <div class="py-5">
+            <h4 class="fw-bold">Honoring Loved Ones with Care</h4>
+            <p>At Rainbow Bridge, our dedication to providing compassionate cremation services in Bogor is unmatched. Let us help you design a heartfelt and memorable farewell for your loved one.</p>
         </div>
-    </div>
-</footer>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="py-4" style="background-color: #343a40; color: white;">
+        <div class="container text-center">
+            <div class="mt-3">
+                <h5 class="fw-bold">Rainbow Bridge</h5>
+                <p>
+                    <a href="https://www.instagram.com/rainbowbridge_memorial/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> | 
+                    <a href="mailto:rainbowbridgekremasihewan2021@gmail.com" style="color: white; text-decoration: none;">Email</a> | 
+                    <a href="https://www.facebook.com/share/1PcPnVqciU/" target="_blank" style="color: white; text-decoration: none;">Facebook</a>
+                </p>
+                <p>Phone: <a href="tel:+6281808106789" style="color: white; text-decoration: none;">+62 818-0810-6789</a></p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
