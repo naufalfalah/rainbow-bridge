@@ -14,7 +14,10 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Pesan Layanan</h1>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+            <h1 class="text-center">Pesan Layanan</h1>
+        </div>
 
         <?php if (isset($_SESSION['error'])): ?>
             <div class="alert alert-danger">
@@ -23,89 +26,88 @@
         <?php endif; ?>
 
         <form action="?url=order/create" method="POST" class="p-4 border rounded shadow-sm bg-light">
-            <!-- wahtsapp number -->
+            <!-- owner name -->
             <div class="mb-3">
-                <label for="whatsapp_number" class="form-label">Nomor WhatsApp *</label>
-                <input type="text" id="whatsapp_number" name="whatsapp_number" class="form-control" placeholder="Masukkan nomor WhatsApp Anda" required>
+                <label for="owner_name" class="form-label">Nama Pemilik *</label>
+                <input type="text" id="owner_name" name="owner_name" class="form-control" placeholder="Masukkan nama pemilik hewan" required>
             </div>
 
             <div class="mb-3">
-                <label for="service_id" class="form-label">Tipe Layanan *</label>
-                <select id="service_id" name="service_id" class="form-control" required>
-                    <option value="">-- Pilih tipe layanan --</option>
-                    <?php foreach ($services as $service): ?>
-                        <option value="<?= $service['id']; ?>"><?= htmlspecialchars($service['name']); ?> - <?= htmlspecialchars($service['description']); ?> - <?= htmlspecialchars($service['price']); ?></option>
-                    <?php endforeach; ?>
+                <label for="address" class="form-label">Alamat *</label>
+                <textarea id="address" name="address" class="form-control" rows="3" placeholder="Masukkan alamat lengkap Anda" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="animal_type" class="form-label">Jenis Hewan *</label>
+                <select id="animal_type" name="animal_type" class="form-control" required>
+                    <option value="">-- Pilih jenis hewan --</option>
+                    <option value="cat">Kucing</option>
+                    <option value="dog">Anjing</option>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="pet_funeral_service" class="form-label">Layanan Jenazah Pengurusan Hewan (Optional)</label>
-                <select id="pet_funeral_service" name="pet_funeral_service" class="form-control">
-                    <option value="">-- Pilih opsi --</option>
-                    <option value="small">Pengurusan Jenazah Hewan Small - Layanan Pengurusan Jenazah Hewan seperti dibersihkan, disisir, dan dibedaki (opsional). Termasuk kain kafan dan perlengkapan pembersih. Max. berat 10kg. - IDR 500.000,-</option>
-                    <option value="small_plus">Pengurusan Jenazah Hewan Small Plus - Layanan Pengurusan Jenazah Hewan seperti dimandikan, disisir, dan dibedaki (opsional). Termasuk kain kafan dan perlengkapan pembersih. Max. berat 10kg. - IDR 750.000,-</option>
-                    <option value="medium">Pengurusan Jenazah Hewan Standar Medium - Layanan Pengurusan Jenazah Hewan seperti dibersihkan, disisir, dan dibedaki (opsional). Termasuk kain kafan dan perlengkapan pembersih. Max. berat 30kg. - IDR 750.000,-</option>
-                    <option value="medium_plus">Pengurusan Jenazah Hewan Standar Medium Plus - Layanan Pengurusan Jenazah Hewan seperti dimandikan, disisir, dan dibedaki (opsional). Termasuk kain kafan dan perlengkapan pembersih. Max. berat 30kg. - IDR 1.000.000,-</option>
-                    <option value="big">Pengurusan Jenazah Hewan Standar Big - Layanan Pengurusan Jenazah Hewan seperti dibersihkan, disisir, dan dibedaki (opsional). Termasuk kain kafan dan perlengkapan pembersih. Max. berat 70kg. - IDR 1.000.000,-</option>
-                    <option value="big_plus">Pengurusan Jenazah Hewan Standar Big Plus - Layanan Pengurusan Jenazah Hewan seperti dimandikan, disisir, dan dibedaki (opsional). Termasuk kain kafan dan perlengkapan pembersih. Max. berat 70kg. - IDR 1.250.000,-</option>
+                <label for="pet_name" class="form-label">Nama Hewan *</label>
+                <input type="text" id="pet_name" name="pet_name" class="form-control" placeholder="Masukkan nama hewan Anda" required>
+            </div>
+
+            <!-- religion -->
+            <div class="mb-3">
+                <label for="religion" class="form-label">Agama *</label>
+                <select id="religion" name="religion" class="form-control" required>
+                    <option value="">-- Pilih agama --</option>
+                    <option value="islam">Islam</option>
+                    <option value="christian">Kristen</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="buddha">Buddha</option>
+                    <option value="other">Lainnya</option>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="pickup_area" class="form-label">Area Penjemputan Jenazah *</label>
-                <select id="pickup_area" name="pickup_area" class="form-control" required>
+                <label for="birth_date" class="form-label">Tanggal Lahir Hewan (Optional)</label>
+                <input type="date" id="birth_date" name="birth_date" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="weight" class="form-label">Berat Hewan (kg) *</label>
+                <input type="number" id="weight" name="weight" class="form-control" placeholder="Masukkan berat hewan dalam kg" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="death_date" class="form-label">Tanggal Kematian Hewan *</label>
+                <input type="date" id="death_date" name="death_date" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="death_reason" class="form-label">Penyebab Kematian Hewan *</label>
+                <textarea id="death_reason" name="death_reason" class="form-control" rows="3" placeholder="Masukkan penyebab kematian hewan Anda" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="float_take" class="form-label">Larung atau Ambil Jenazah? *</label>
+                <select id="float_take" name="float_take" class="form-control" required>
                     <option value="">-- Pilih opsi --</option>
-                    <option value="jakarta">Area DKI Jakarta - Layanan penjemputan jenazah hewan area DKI Jakarta - IDR 0,-</option>
-                    <option value="bodetabek">Area BoDeTaBek - Layanan penjemputan jenazah hewan area BoDeTaBek (Bogor Kota, Depok, Tangerang Kota/Selatan, dan Bekasi) - IDR 750.000,-</option>
+                    <option value="float">Larung</option>
+                    <option value="take">Ambil</option>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="return_area" class="form-label">Area Pengantaran Kembali Abu Jenazah *</label>
-                <select id="return_area" name="return_area" class="form-control" required>
+                <label for="ash_pot" class="form-label">Guci Abu Jenazah (Optional)</label>
+                <select id="ash_pot" name="ash_pot" class="form-control">
                     <option value="">-- Pilih opsi --</option>
-                    <option value="flowers">Tidak sesuai - IDR 0,-</option>
-                    <option value="jakarta">Area DKI Jakarta - Layanan pengantaran kembali abu jenazah hewan area DKI Jakarta - IDR 250.000,-</option>
-                    <option value="bodetabek">Area BoDeTaBek - Layanan pengantaran kembali abu jenazah hewan area BoDeTaBek (Bogor Kota, Depok, Tangerang Kota/Selatan, dan Bekasi) - IDR 750.000,-</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="grief_attributes" class="form-label">Atribut Kedukaan Hewan *</label>
-                <select id="grief_attributes" name="grief_attributes" class="form-control" required>
-                    <option value="">-- Pilih opsi --</option>
-                    <option value="standard">Atribut Pemakaman Hewan Standar - Paket bunga tabur dan Dokumentasi (jika diperlukan) - IDR 250.000,-</option>
-                    <option value="premium">Atribut Pemakaman Hewan Premium - Paket bunga tabur dan Dokumentasi (jika diperlukan) - IDR 2.750.000,-</option>
-                    <option value="none">Tanpa Atribut Kedukaan - IDR 0,--</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="ashes_scattering" class="form-label">Pelarungan Abu Jenazah Hewan (Optional)</label>
-                <select id="ashes_scattering" name="ashes_scattering" class="form-control">
-                    <option value="">-- Pilih opsi --</option>
-                    <option value="mutiara">Pelarungan Abu Jenazah Hewan di Mutiara - Pelarungan Abu Jenazah Hewan di Mutiara. Termasuk tiket masuk kawasan untuk 1 mobil dan sewa perahu. (max. 3 orang) - IDR 1.000.000,-</option>
-                    <option value="ancol">Pelarungan Abu Jenazah Hewan di Ancol - Pelarungan Abu Jenazah Hewan di Ancol. Termasuk tiket masuk kawasan untuk 1 mobil dan sewa perahu. (max. 3 orang) - IDR 1.250.000,-</option>
-                    <option value="pik">Pelarungan Abu Jenazah Hewan di PIK - Pelarungan Abu Jenazah Hewan di PIK. Termasuk tiket masuk kawasan untuk 1 mobil dan sewa perahu. (max. 3 orang) - IDR 1.500.000,-</option>
-                    <option value="none">Tanpa pelarungan - IDR 0,-</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="addons" class="form-label">Addons (Optional)</label>
-                <select id="addons" name="addons" class="form-control">
-                    <option value="">-- Pilih opsi --</option>
-                    <option value="standard">Peti Jenazah Hewan Standar - IDR 500.000,-</option>
-                    <option value="paw_small">Guci Paw Kecil - IDR 350.000,-</option>
-                    <option value="paw_large">Guci Paw Besar - IDR 750.000,-</option>
-                    <option value="memorial_kits">Memorial kits - IDR 2.500.000,-</option>
-                    <option value="none">Tidak ada - IDR 0,-</option>
+                    <option value="yes">Ya</option>
+                    <option value="no">Tidak</option>
                 </select>
             </div>
 
             <div class="alert alert-info mt-4" role="alert">
                 Setelah pesanan dibuat, admin kami akan menghubungi Anda melalui WhatsApp untuk konfirmasi lebih lanjut.
+            </div>
+            
+            <div class="alert alert-info mt-4 text-center">
+                Total Biaya: Rp<span id="total-cost">0,-</span>
             </div>
 
             <button type="submit" class="btn btn-primary w-100">Order</button>
@@ -114,5 +116,28 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('animal_type').addEventListener('change', updatePrice);
+        document.getElementById('weight').addEventListener('input', updatePrice);
+        function updatePrice() {
+            const animalType = document.getElementById('animal_type').value;
+            const weight = parseFloat(document.getElementById('weight').value) || 0;
+            let basePrice = 0;
+
+            if (animalType === 'cat') {
+                basePrice = 270000; // Base price for cat
+                if (weight > 3) {
+                    basePrice += (weight - 3) * 25000; // Additional cost for weight over 3kg
+                }
+            } else if (animalType === 'dog') {
+                basePrice = 370000; // Base price for dog
+                if (weight > 5) {
+                    basePrice += (weight - 5) * 25000; // Additional cost for weight over 5kg
+                }
+            }
+
+            document.getElementById('total-cost').innerText = `${basePrice.toLocaleString()},-`;
+        }
+    </script>
 </body>
 </html>

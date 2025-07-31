@@ -2,25 +2,36 @@
 
 class OrderController extends Controller {
     public function create() {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $whatsappNumber = $_POST['whatsapp_number'];
-            $serviceId = $_POST['service_id'];
-            $petFuneralService = isset($_POST['pet_funeral_service']) ? $_POST['pet_funeral_service'] : null;
-            $pickupArea = $_POST['pickup_area'];
-            $returnArea = $_POST['return_area'];
-            $griefAttributes = $_POST['grief_attributes'];
-            $ashesScattering = isset($_POST['ashes_scattering']) ? $_POST['ashes_scattering'] : null;
-            $addons = isset($_POST['addons']) ? $_POST['addons'] : null;
-
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ownerName = $_POST['owner_name'] ?? null;
+            $petName = $_POST['pet_name'] ?? null;
+            $religion = $_POST['religion'] ?? null;
+            $birthDate = $_POST['birth_date'] ?? null;
+            $weight = $_POST['weight'] ?? null;
+            $deathDate = $_POST['death_date'] ?? null;
+            $deathReason = $_POST['death_reason'] ?? null;
+            $floatTake = $_POST['float_take'] ?? null;
+            $ashPot = $_POST['ash_pot'] ?? null;
+            
             // Validasi input
-            if (empty($whatsappNumber) || empty($serviceId) || empty($pickupArea) || empty($returnArea) || empty($griefAttributes)) {
+            if (empty($ownerName) || empty($petName) || empty($religion) || empty($weight) || empty($deathDate) || empty($deathReason) || empty($floatTake)) {
                 $_SESSION['error'] = 'Fields marked with * are required.';
                 header('Location: ?url=order/create');
                 exit;
             }
 
             $model = $this->model('OrderModel');
-            $model->createOrder($whatsappNumber, $serviceId, $petFuneralService, $pickupArea, $returnArea, $griefAttributes, $ashesScattering, $addons);
+            $model->createOrder(
+                $ownerName,
+                $petName,
+                $religion,
+                $birthDate,
+                $weight,
+                $deathDate,
+                $deathReason,
+                $floatTake,
+                $ashPot
+            );
 
             header('Location: ?url=home');
             exit;

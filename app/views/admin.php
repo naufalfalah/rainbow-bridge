@@ -155,17 +155,34 @@
                     <thead class="table-dark">
                         <tr>
                             <th>No</th>
-                            <th>Username</th>
-                            <th>Email</th>
+                            <th>Owner Name</th>
+                            <th>Pet Name</th>
+                            <th>Religion</th>
+                            <th>Birth Date</th>
+                            <th>Weight</th>
+                            <th>Death Date</th>
+                            <th>Death Reason</th>
+                            <th>Float/Take</th>
+                            <th>Ash Pot</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Populate with orders data -->
+                        <?php $index = 1; ?>
+                        <?php foreach ($orders as $order): ?>
                         <tr>
-                            <td>1</td>
-                            <td>admin</td>
-                            <td>admin@example.com</td>
+                            <td><?= $index++; ?></td>
+                            <td><?= htmlspecialchars($order['owner_name']); ?></td>
+                            <td><?= htmlspecialchars($order['pet_name']); ?></td>
+                            <td><?= htmlspecialchars($order['religion']); ?></td>
+                            <td><?= htmlspecialchars($order['birth_date']); ?></td>
+                            <td><?= htmlspecialchars($order['weight']); ?></td>
+                            <td><?= htmlspecialchars($order['death_date']); ?></td>
+                            <td><?= htmlspecialchars($order['death_reason']); ?></td>
+                            <td><?= htmlspecialchars($order['float_take']); ?></td>
+                            <td><?= htmlspecialchars($order['ash_pot']); ?></td>
                         </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
