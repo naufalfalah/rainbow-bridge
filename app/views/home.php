@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <button class="btn btn-warning btn-lg" style="border-radius: 0;">Call Us</button>
+                        <a href="https://wa.me/6281808106789" target="_blank" class="btn btn-warning btn-lg" style="border-radius: 0;">Call Us</a>
                     </li>
                 </ul>
             </div>
@@ -193,7 +193,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-5" style="background-color: #343a40; color: white;">
+    <!-- <section id="services" class="py-5" style="background-color: #343a40; color: white;">
         <div class="container">
             <h2 class="text-center fw-bold mb-4" style="color: white;">Our Services</h2>
             <div class="row g-4">
@@ -204,7 +204,6 @@
                             <div class="card-body">
                                 <h5 class="card-title fw-bold"><?= $service['name']; ?></h5>
                                 <p class="fw-bold">Cost: IDR <?= $service['price']; ?></p>
-                                <!-- <a href="#" class="btn btn-primary btn-block">Learn More</a> -->
                                 <p class="card-text"><?= $service['description']; ?></p>
                             </div>
                         </div>
@@ -212,7 +211,7 @@
                 <?php endforeach; ?>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Accordion (FAQ Section) -->
     <section id="faq" class="py-5" style="background-color: #343a40; color: white;">
@@ -260,7 +259,7 @@
                     <a href="mailto:rainbowbridgekremasihewan2021@gmail.com" style="color: white; text-decoration: none;">Email</a> | 
                     <a href="https://www.facebook.com/share/1PcPnVqciU/" target="_blank" style="color: white; text-decoration: none;">Facebook</a>
                 </p>
-                <p>Phone: <a href="tel:+6281808106789" style="color: white; text-decoration: none;">+62 818-0810-6789</a></p>
+                <p>Phone: <a href="https://wa.me/6281808106789" target="_blank" style="color: white; text-decoration: none;">+62 818-0810-6789</a></p>
             </div>
         </div>
     </footer>
