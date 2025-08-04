@@ -8,10 +8,17 @@
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .carousel-inner img {
+            max-height: 680px; /* Maksimal tinggi gambar */
+            width: 100%; /* Lebar penuh */
+            object-fit: cover; /* Gambar memenuhi area tanpa distorsi */
+            object-position: center; /* Posisikan gambar di tengah */
+        }
+    </style>
 </head>
 
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container py-3">
@@ -42,7 +49,7 @@
                 </div>
                 <!-- Gambar di Sebelah Kanan -->
                 <div class="col-md-6 p-0">
-                    <img src="https://picsum.photos/600/400" class="img-fluid w-100" alt="Hero Image">
+                    <img src="img/Picture1.png" class="img-fluid w-100" alt="Hero Image">
                 </div>
             </div>
         </div>
@@ -54,7 +61,7 @@
             <div class="text-left">
                 <h2 class="display-5 mb-4">Kremasi Bermartabat</h2>
                 <p class="lead mb-4">Rainbow Bridge menawarkan layanan kremasi yang penuh kasih sayang. Kami memastikan perpisahan yang Bermartabat bagi peliharaan terkasih Anda dengan perawatan yang personal selama proses berlangsung. Tim kami yang berdedikasi berkomitmen untuk mendukung Anda di setiap langkah, memberikan kedamaian dan kenyamanan selama masa sulit ini. Pilih Rainbow Bridge untuk kenangan yang penuh rasa hormat.</p>
-                <img src="https://picsum.photos/800/400" class="img-fluid w-100" alt="About Image">
+                <img src="img/Picture2.png" class="img-fluid w-100" alt="About Image">
             </div>
         </div>
     </section>
@@ -67,7 +74,7 @@
                 <!-- Informasi 1 -->
                 <div class="col-md-6 mb-4">
                     <div>
-                        <img src="https://picsum.photos/800/400?random=1" class="img-fluid w-100 rounded mb-3" alt="Service 1">
+                        <img src="img/Picture3.png" class="img-fluid w-100 rounded mb-3" alt="Service 1">
                         <h4 class="text-start">Personalized Memorial Ceremonies</h4>rain
                         <p class="text-start">Ciptakan perpisahan yang bermakna dengan upacara peringatan yang dirancang khusus untuk menghormati kehidupan unik orang yang Anda cintai.</p>
                     </div>
@@ -75,7 +82,7 @@
                 <!-- Informasi 2 -->
                 <div class="col-md-6 mb-4">
                     <div>
-                        <img src="https://picsum.photos/800/400?random=2" class="img-fluid w-100 rounded mb-3" alt="Service 2">
+                        <img src="img/Picture4.png" class="img-fluid w-100 rounded mb-3" alt="Service 2">
                         <h4 class="text-start">Eco-Friendly Cremation Options</h4>
                         <p class="text-start">Pilih praktik berkelanjutan yang memastikan perpisahan yang penuh rasa hormat terhadap alam sambil menghormati anabul yang Anda cintai.</p>
                     </div>
@@ -83,7 +90,7 @@
                 <!-- Informasi 3 -->
                 <div class="col-md-6 mb-4">
                     <div>
-                        <img src="https://picsum.photos/800/400?random=3" class="img-fluid w-100 rounded mb-3" alt="Service 3">
+                        <img src="img/Picture5.png" class="img-fluid w-100 rounded mb-3" alt="Service 3">
                         <h4 class="text-start">Larung</h4>
                         <p class="text-start">Nikmati upacara kremasi penuh rasa hormat yang sejalan dengan nilai-nilai tradisional. Layanan Larung kami memastikan perpisahan yang bermartabat bagi orang-orang terkasih Anda, didampingi oleh para profesional yang penuh perhatian.</p>
                     </div>
@@ -91,7 +98,7 @@
                 <!-- Informasi 4 -->
                 <div class="col-md-6 mb-4">
                     <div>
-                        <img src="https://picsum.photos/800/400?random=4" class="img-fluid w-100 rounded mb-3" alt="Service 4">
+                        <img src="img/Picture6.png" class="img-fluid w-100 rounded mb-3" alt="Service 4">
                         <h4 class="text-start">Efficient Cremation Planning</h4>
                         <p class="text-start"> Kami menyediakan pengalaman perencanaan kremasi yang lancar. Tim kami akan membantu Anda mengatur setiap detailnya. Kami memastikan layanan yang terhormat dan efisien memenuhi kebutuhan Anda dengan penuh perhatian dan profesionalisme.</p>
                     </div>
@@ -113,19 +120,19 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://picsum.photos/1200/400?random=1" class="d-block w-100" alt="slide1">
+                <img src="img/Picture7.png" class="d-block w-100" alt="slide1">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/1200/400?random=2" class="d-block w-100" alt="slide2">
+                <img src="img/Picture8.png" class="d-block w-100" alt="slide2">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/1200/400?random=3" class="d-block w-100" alt="slide3">
+                <img src="img/Picture9.png" class="d-block w-100" alt="slide3">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/1200/400?random=4" class="d-block w-100" alt="slide4">
+                <img src="img/Picture10.png" class="d-block w-100" alt="slide4">
             </div>
             <div class="carousel-item">
-                <img src="https://picsum.photos/1200/400?random=5" class="d-block w-100" alt="slide5">
+                <img src="img/Picture11.png" class="d-block w-100" alt="slide5">
             </div>
         </div>
 
@@ -179,7 +186,7 @@
             <div class="row align-items-center">
                 <!-- Left Column: Image -->
                 <div class="col-md-6">
-                    <img src="https://picsum.photos/500/400?random=1" alt="Descriptive Image" class="img-fluid rounded">
+                    <img src="img/Picture12.png" alt="Descriptive Image" class="img-fluid rounded">
                 </div>
                 <!-- Right Column: Heading and Description -->
                 <div class="col-md-6">
@@ -242,11 +249,8 @@
     </section>
 
     <!-- Quote Section -->
-    <section style="background-image: url(https://picsum.photos/400/1200); background-size: cover; background-position: center; color: white; text-align: center; padding: 50px 20px;">
-        <div class="py-5">
-            <h4 class="fw-bold">Honoring Loved Ones with Care</h4>
-            <p>At Rainbow Bridge, our dedication to providing compassionate cremation services in Bogor is unmatched. Let us help you design a heartfelt and memorable farewell for your loved one.</p>
-        </div>
+    <section class="text-center">
+        <img src="img/Picture13.png" alt="">
     </section>
 
     <!-- Footer Section -->
