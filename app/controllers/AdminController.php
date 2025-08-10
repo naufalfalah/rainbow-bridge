@@ -15,17 +15,17 @@ class AdminController extends Controller {
             exit;
         }
 
-        $model = $this->model('ServiceModel');
-        $services = $model->getServices();
+        $serviceModel = $this->model('ServiceModel');
+        $services = $serviceModel->getServices();
 
-        $model = $this->model('TestimonyModel');
-        $testimonies = $model->getTestimonies();
+        $testimonyModel = $this->model('TestimonyModel');
+        $testimonies = $testimonyModel->getTestimonies();
         
-        $model = $this->model('FaqModel');
-        $faqs = $model->getFaqs();
+        $faqModel = $this->model('FaqModel');
+        $faqs = $faqModel->getFaqs();
 
-        $model = $this->model('OrderModel');
-        $orders = $model->getorders();
+        $orderModel = $this->model('OrderModel');
+        $orders = $orderModel->getorders();
         
         // Tampilkan halaman admin
         $this->view('admin', [
@@ -33,6 +33,7 @@ class AdminController extends Controller {
             'testimonies' => $testimonies,
             'faqs' => $faqs,
             'orders' => $orders,
+            'totalRevenue' => $orderModel->getTotalRevenue(),
         ]);
     }
 

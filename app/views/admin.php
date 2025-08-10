@@ -156,6 +156,8 @@
                         <tr>
                             <th>No</th>
                             <th>Owner Name</th>
+                            <th>Address</th>
+                            <th>Animal Type</th>
                             <th>Pet Name</th>
                             <th>Religion</th>
                             <th>Birth Date</th>
@@ -164,6 +166,8 @@
                             <th>Death Reason</th>
                             <th>Float/Take</th>
                             <th>Ash Pot</th>
+                            <th>Total Cost</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -173,6 +177,8 @@
                         <tr>
                             <td><?= $index++; ?></td>
                             <td><?= htmlspecialchars($order['owner_name']); ?></td>
+                            <td><?= htmlspecialchars($order['address']); ?></td>
+                            <td><?= htmlspecialchars($order['animal_type']); ?></td>
                             <td><?= htmlspecialchars($order['pet_name']); ?></td>
                             <td><?= htmlspecialchars($order['religion']); ?></td>
                             <td><?= htmlspecialchars($order['birth_date']); ?></td>
@@ -181,14 +187,68 @@
                             <td><?= htmlspecialchars($order['death_reason']); ?></td>
                             <td><?= htmlspecialchars($order['float_take']); ?></td>
                             <td><?= htmlspecialchars($order['ash_pot']); ?></td>
+                            <td><?= 'Rp ' . number_format($order['total_cost'], 0, ',', '.'); ?></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" onclick="printReceipt(<?= htmlspecialchars(json_encode($order)); ?>)">Cetak Struk</button>
+                            </td>
+
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h2 class="h5 mb-0">Pendapatan Bulan Ini</h2>
+            </div>
+            <div class="card-body">
+                <p>Total pendapatan bulan ini: Rp <?= number_format($totalRevenue, 0, ',', '.'); ?></p>
+            </div>    
+        </div>
     </div>
 
+    <div id="printArea" style="display: none;">
+        <div id="receiptContent"></div>
+    </div>
+
+    <script>
+        function printReceipt(order) {
+            // Buat konten struk
+            const receiptContent = `
+                <div style="font-family: Arial, sans-serif; width: 300px; margin: auto; text-align: center;">
+                    <h2>Struk Pemesanan</h2>
+                    <hr>
+                    <p><strong>Nama Pemilik:</strong> ${order.owner_name}</p>
+                    <p><strong>Alamat:</strong> ${order.address}</p>
+                    <p><strong>Jenis Hewan:</strong> ${order.animal_type}</p>
+                    <p><strong>Nama Hewan:</strong> ${order.pet_name}</p>
+                    <p><strong>Agama:</strong> ${order.religion}</p>
+                    <p><strong>Tanggal Lahir:</strong> ${order.birth_date}</p>
+                    <p><strong>Berat:</strong> ${order.weight} kg</p>
+                    <p><strong>Tanggal Kematian:</strong> ${order.death_date}</p>
+                    <p><strong>Alasan Kematian:</strong> ${order.death_reason}</p>
+                    <p><strong>Float/Take:</strong> ${order.float_take}</p>
+                    <p><strong>Ash Pot:</strong> ${order.ash_pot}</p>
+                    <p><strong>Total Biaya:</strong> Rp ${new Intl.NumberFormat('id-ID').format(order.total_cost)}</p>
+                    <hr>
+                    <p>Terima kasih atas kepercayaan Anda!</p>
+                </div>
+            `;
+
+            // Masukkan konten ke dalam elemen HTML
+            const printArea = document.getElementById('printArea');
+            const receiptDiv = document.getElementById('receiptContent');
+            receiptDiv.innerHTML = receiptContent;
+
+            // Buka dialog print
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(receiptContent);
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
     <!-- Tambahkan Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
