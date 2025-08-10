@@ -33,6 +33,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="owner_email" class="form-label">Email Pemilik (Optional)</label>
+                <input type="email" id="owner_email" name="owner_email" class="form-control" placeholder="Masukkan email pemilik hewan">
+            </div>
+
+            <div class="mb-3">
                 <label for="address" class="form-label">Alamat *</label>
                 <textarea id="address" name="address" class="form-control" rows="3" placeholder="Masukkan alamat lengkap Anda" required></textarea>
             </div>

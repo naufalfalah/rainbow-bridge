@@ -1,9 +1,19 @@
 <?php
 
+use Dotenv\Dotenv;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
 class OrderController extends Controller {
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ownerName = $_POST['owner_name'] ?? null;
+            $ownerEmail = $_POST['owner_email'] ?? null;
             $address = $_POST['address'] ?? null;
             $animalType = $_POST['animal_type'] ?? null;
             $petName = $_POST['pet_name'] ?? null;
@@ -50,6 +60,41 @@ class OrderController extends Controller {
                 $ashPot,
                 $totalCost
             );
+
+            // Kirim email konfirmasi
+            $mail = new PHPMailer(true);
+
+            try {
+                // Konfigurasi SMTP
+                $mail->isSMTP();
+                $mail->Host = $_ENV['SMTP_HOST'];
+                $mail->SMTPAuth = true;
+                $mail->Username = $_ENV['SMTP_USER'];
+                $mail->Password = $_ENV['SMTP_PASS'];
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = $_ENV['SMTP_PORT'];
+
+                // Pengaturan email
+                $mail->setFrom($_ENV['SMTP_USER'], 'Rainbow Bridge');
+                $mail->addAddress($ownerEmail); // Email pemesan
+                $mail->isHTML(true);
+                $mail->Subject = 'Konfirmasi Pemesanan';
+                $mail->Body = "
+                    <h1>Terima kasih atas pemesanan Anda!</h1>
+                    <p>Detail pemesanan Anda:</p>
+                    <ul>
+                        <li>Nama Pemilik: $ownerName</li>
+                        <li>Nama Hewan: $petName</li>
+                        <li>Jenis Hewan: $animalType</li>
+                        <li>Total Biaya: Rp " . number_format($totalCost, 0, ',', '.') . "</li>
+                    </ul>
+                    <p>Silakan hubungi kami jika ada pertanyaan lebih lanjut.</p>
+                ";
+
+                $mail->send();
+            } catch (Exception $e) {
+                error_log("Email gagal dikirim: {$mail->ErrorInfo}");
+            }
 
             header('Location: ?url=home');
             exit;
