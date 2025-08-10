@@ -33,8 +33,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="owner_email" class="form-label">Email Pemilik (Optional)</label>
-                <input type="email" id="owner_email" name="owner_email" class="form-control" placeholder="Masukkan email pemilik hewan">
+                <label for="owner_email" class="form-label">Email Pemilik</label>
+                <input type="email" id="owner_email" name="owner_email" class="form-control" placeholder="Masukkan email pemilik hewan" required>
             </div>
 
             <div class="mb-3">

@@ -71,12 +71,20 @@ class OrderController extends Controller {
                 $mail->SMTPAuth = true;
                 $mail->Username = $_ENV['SMTP_USER'];
                 $mail->Password = $_ENV['SMTP_PASS'];
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port = $_ENV['SMTP_PORT'];
+                $mail->Port       = (int) $_ENV['SMTP_PORT'];
+                $mail->SMTPSecure = ($_ENV['SMTP_PORT'] == 465) 
+                                    ? PHPMailer::ENCRYPTION_SMTPS 
+                                    : PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Timeout    = 15;
+                $mail->CharSet    = 'UTF-8';
 
-                // Pengaturan email
-                $mail->setFrom($_ENV['SMTP_USER'], 'Rainbow Bridge');
-                $mail->addAddress($ownerEmail); // Email pemesan
+                // Pengirim
+                $mail->setFrom($_ENV['SMTP_MAIL'], 'Test SMTP');
+
+                // Penerima
+                $mail->addAddress($ownerEmail, $ownerName); // Email pemesan
+
+                // Konten
                 $mail->isHTML(true);
                 $mail->Subject = 'Konfirmasi Pemesanan';
                 $mail->Body = "
